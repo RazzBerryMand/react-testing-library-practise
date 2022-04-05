@@ -9,7 +9,7 @@ test('header renders with correct text', () => {
 
     const { getByTestId } = render(<Counter/>);
     const headerEl = getByTestId('header');
-
+    
     expect(headerEl.textContent).toBe('My Counter');
 })
 
