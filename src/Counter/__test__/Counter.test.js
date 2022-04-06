@@ -1,42 +1,42 @@
 /* eslint-disable testing-library/prefer-screen-queries */
-import React from 'react';
-import Counter from '../Counter';
-import { render } from '@testing-library/react';
+import React from "react";
+import Counter from "../Counter";
+import { render } from "@testing-library/react";
 
-test('header renders with correct text', () => {
+test("header renders with correct text", () => {
     // const view = render(<Counter />);
     // const headerEl = view.getByTestId("header");
 
-    const { getByTestId } = render(<Counter/>);
-    const headerEl = getByTestId('header');
-    
-    expect(headerEl.textContent).toBe('My Counter');
-})
-
-test('counter initialises with count of 0', () => {
-    const { getByTestId} = render(<Counter />)
-    const counterEl = getByTestId('counter');
-
-    expect(counterEl.textContent).toBe('0');
-})
-
-test('input initialises with value of 1', () => {
     const { getByTestId } = render(<Counter />);
-    const inputEl = getByTestId('input');
+    const headerEl = getByTestId("header");
 
-    expect(inputEl.value).toBe('1');
-})
+    expect(headerEl.textContent).toBe("My Counter");
+});
 
-test('add button renders with +', () => {
+test("counter initialises with count of 0", () => {
     const { getByTestId } = render(<Counter />);
-    const addBtn = getByTestId('add-btn');
+    const counterEl = getByTestId("counter");
 
-    expect(addBtn.textContent).toBe('+');
-})
+    expect(counterEl.textContent).toBe("0");
+});
 
-test('subtract button renders with -', () => {
+test("input initialises with value of 1", () => {
     const { getByTestId } = render(<Counter />);
-    const subtractBtn = getByTestId('subtract-btn');
+    const inputEl = getByTestId("input");
 
-    expect(subtractBtn.textContent).toBe('-');
-})
+    expect(inputEl.value).toBe("1");
+});
+
+test("add button renders with +", () => {
+    const { getByTestId } = render(<Counter />);
+    const addBtn = getByTestId("add-btn");
+
+    expect(addBtn.textContent).toBe("+");
+});
+
+test("subtract button renders with -", () => {
+    const { getByTestId } = render(<Counter />);
+    const subtractBtn = getByTestId("subtract-btn");
+
+    expect(subtractBtn.textContent).toBe("-");
+});
