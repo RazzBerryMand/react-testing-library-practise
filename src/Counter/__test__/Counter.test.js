@@ -1,7 +1,7 @@
 /* eslint-disable testing-library/prefer-screen-queries */
 import React from "react";
 import Counter from "../Counter";
-import { render } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 
 test("header renders with correct text", () => {
     // const view = render(<Counter />);
@@ -39,4 +39,19 @@ test("subtract button renders with -", () => {
     const subtractBtn = getByTestId("subtract-btn");
 
     expect(subtractBtn.textContent).toBe("-");
+});
+
+test("input value changes correctly", () => {
+    const { getByTestId } = render(<Counter />);
+    const inputEl = getByTestId("input");
+
+    expect(inputEl.value).toBe("1");
+
+    fireEvent.change(inputEl, {
+        target: {
+            value: "5",
+        },
+    });
+
+    expect(inputEl.value).toBe('5');
 });
