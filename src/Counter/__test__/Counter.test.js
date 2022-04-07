@@ -141,3 +141,20 @@ test("add and subtract buttons both work correctly if clicked multiple times", (
 
     expect(counterEl.textContent).toBe("20");
 });
+
+test("counter text is red color if value is negative", () => {
+    const { getByTestId } = render(<Counter />);
+    const counterEl = getByTestId("counter");
+    const inputEl = getByTestId("input");
+    const subtractBtn = getByTestId("subtract-btn")
+
+    fireEvent.change(inputEl, {
+        target: {
+            value: "50"
+        }
+    })
+
+    fireEvent.click(subtractBtn);
+
+    expect(counterEl.className).toBe("text-red");
+})

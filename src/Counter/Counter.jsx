@@ -17,7 +17,9 @@ function Counter() {
     return (
         <div>
             <h3 data-testid="header">My Counter</h3>
-            <h2 data-testid="counter">{counterValue}</h2>
+            <h2 data-testid="counter"
+            className={`${counterValue < 0 ? "text-red" : ""}`}
+            >{counterValue}</h2>
             <button data-testid="subtract-btn"
                 onClick={subtractFromCounter}
             >-</button>
