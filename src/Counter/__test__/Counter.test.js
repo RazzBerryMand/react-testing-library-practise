@@ -88,11 +88,11 @@ test("add button works with any input value", () => {
     const inputEl = getByTestId("input");
 
 
-fireEvent.change(inputEl, {
-    target: {
-        value: "5"
-    }
-})
+    fireEvent.change(inputEl, {
+        target: {
+            value: "5"
+        }
+    })
 
     fireEvent.click(addBtn);
 
@@ -100,20 +100,44 @@ fireEvent.change(inputEl, {
 });
 
 
-test("subtradt button works with any input value", () => {
+test("subtract button works with any input value", () => {
     const { getByTestId } = render(<Counter />);
     const subtractBtn = getByTestId("subtract-btn");
     const counterEl = getByTestId("counter");
     const inputEl = getByTestId("input");
 
 
-fireEvent.change(inputEl, {
-    target: {
-        value: "5"
-    }
-})
+    fireEvent.change(inputEl, {
+        target: {
+            value: "5"
+        }
+    })
 
     fireEvent.click(subtractBtn);
 
     expect(counterEl.textContent).toBe("-5");
+});
+
+test("add and subtract buttons both work correctly if clicked multiple times", () => {
+    const { getByTestId } = render(<Counter />);
+    const addBtn = getByTestId("add-btn");
+    const subtractBtn = getByTestId("subtract-btn")
+    const counterEl = getByTestId("counter");
+    const inputEl = getByTestId("input");
+
+
+    fireEvent.change(inputEl, {
+        target: {
+            value: "10"
+        }
+    })
+
+    fireEvent.click(addBtn);
+    fireEvent.click(addBtn);
+    fireEvent.click(addBtn);
+    fireEvent.click(addBtn);
+    fireEvent.click(subtractBtn);
+    fireEvent.click(subtractBtn);
+
+    expect(counterEl.textContent).toBe("20");
 });
