@@ -4,9 +4,6 @@ import Counter from "../Counter";
 import { render, fireEvent } from "@testing-library/react";
 
 test("header renders with correct text", () => {
-    // const view = render(<Counter />);
-    // const headerEl = view.getByTestId("header");
-
     const { getByTestId } = render(<Counter />);
     const headerEl = getByTestId("header");
 
